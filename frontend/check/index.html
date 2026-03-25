@@ -20,7 +20,7 @@
         form.addEventListener("submit", async (e)=> {
             e.preventDefault();
             const username = name.value;
-            const res = await fetch("http://192.168.32.164/api/check-user", {
+            const res = await fetch("/api/check-user", {
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"

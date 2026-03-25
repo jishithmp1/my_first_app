@@ -21,7 +21,7 @@
         form.addEventListener("submit", async (e)=> {
             e.preventDefault();
             const username = name.value;
-            const res = await fetch("http://192.168.32.164/api/create-user", {
+            const res = await fetch("/api/create-user", {
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"
