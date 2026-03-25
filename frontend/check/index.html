@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check user</title>
+</head>
+
+<body>
+    <form id="form">
+        <h1>check User</h1>
+        <input type="text" required id="name">
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const form = document.getElementById("form");
+        const name = document.getElementById("name");
+        
+        form.addEventListener("submit", async (e)=> {
+            e.preventDefault();
+            const username = name.value;
+            const res = await fetch("http://192.168.32.164/api/check-user", {
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json"
+                }, 
+                body: JSON.stringify({
+                    username
+                })
+            })
+
+            const data = await res.json();
+            if (data) {
+                alert(data.message);
+            }
+        })
+    </script>
+</body>
+
+</html>
